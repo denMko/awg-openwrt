@@ -49,7 +49,11 @@ jobs:
     needs: generate-config
     strategy:
       matrix:
-        build_env: ${{ fromJson(needs.generate-config.outputs.job-config) }}
+        build_env.tag: [22.03.5]
+        build_env.pkgarch: [mipsel_24kc]
+        build_env.target: [ramips]
+        build_env.subtarget: [mt7621]
+        build_env.vermagic: [2d6f3ce75b5e7700b705cb00cd526063]
       fail-fast: false
 
     steps:
